@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 11, 2018 8:18:23 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="CarRent.Cars" table="cars" catalog="cars" optimistic-lock="version">
+        <id name="reg" type="int">
+            <column name="Reg" />
+            <generator class="assigned" />
+        </id>
+        <property name="model" type="string">
+            <column name="Model" length="200" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="Type" length="200" not-null="true" />
+        </property>
+        <property name="rent" type="int">
+            <column name="Rent" not-null="true" />
+        </property>
+        <property name="availability" type="string">
+            <column name="Availability" length="200" not-null="true" />
+        </property>
+        <set name="bookings" table="booking" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CarID" not-null="true" />
+            </key>
+            <one-to-many class="CarRent.Booking" />
+        </set>
+    </class>
+</hibernate-mapping>
