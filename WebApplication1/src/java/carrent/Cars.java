@@ -18,15 +18,11 @@ public class Cars  implements java.io.Serializable {
      private String type;
      private int rent;
      private String availability;
-     @Lob
-@Type(type="org.hibernate.type.PrimitiveByteArrayBlobType")
-byte[] myBlob;
      private byte[] image;
      private Set bookings = new HashSet(0);
 
     public Cars() {
     }
-
 	
     public Cars(int reg, String model, String type, int rent, String availability) {
         this.reg = reg;

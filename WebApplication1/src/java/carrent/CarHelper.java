@@ -34,10 +34,9 @@ public class CarHelper {
         Query q = session.createQuery ("from Cars as car where car.reg between '"+startID+"' and '"+endID+"''");
         
         carList = (List<Cars>) q.list();
-    
+
         session2.close();
-    
-        
+          
         //session.refresh(q.list());
     } catch (Exception e) {
         e.printStackTrace();

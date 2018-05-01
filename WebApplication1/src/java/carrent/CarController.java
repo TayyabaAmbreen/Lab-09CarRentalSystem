@@ -34,7 +34,7 @@ public class CarController {
     public CarController() {
         helper = new CarHelper();
         startId = 1;
-        endId = 10000000;
+        endId = 100000000;
     }
     public CarController(int startId, int endId) {
         helper = new CarHelper();
