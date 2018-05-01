@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 30, 2018 8:01:20 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="carrent.Users" table="users" catalog="cars" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="Username" length="200" not-null="true" />
+        </property>
+        <property name="address" type="string">
+            <column name="Address" length="200" not-null="true" />
+        </property>
+        <property name="contact" type="int">
+            <column name="Contact" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="30" not-null="true" />
+        </property>
+        <property name="fname" type="string">
+            <column name="FName" length="100" not-null="true" />
+        </property>
+        <property name="lname" type="string">
+            <column name="LName" length="100" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="Type" length="50" not-null="true" />
+        </property>
+        <set name="bookings" table="booking" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CustID" not-null="true" />
+            </key>
+            <one-to-many class="carrent.Booking" />
+        </set>
+    </class>
+</hibernate-mapping>

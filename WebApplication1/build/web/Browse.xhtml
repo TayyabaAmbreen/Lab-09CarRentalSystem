@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+                template="./template.xhtml">
+
+    <ui:define name="top">
+        Car Rental System
+    </ui:define>
+
+    <ui:define name="body">
+        <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="Registration"/>
+                    <h:outputText value="#{carController.selected.reg}" title="Registration"/>
+                    <h:outputText value="Model"/>
+                    <h:outputText value="#{carController.selected.model}" title="Model"/>
+                    <h:outputText value="Type"/>
+                    <h:outputText value="#{carController.selected.type}" title="Type"/>
+                    <h:outputText value="Rent"/>
+                    <h:outputText value="#{carController.selected.rent}" title="Rent"/>
+
+                    <h:outputText value="Status"/>
+                    <h:outputText value="#{carController.selected.availability}" title="Status"/>
+                   
+                    <h:outputText value="Image"/>
+                    <img src="#{carController.selected.image}" title="Image" />
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value=" "/>
+                        </f:facet>
+                        <h:commandLink action="#{carController.prepareLogin}" value="Book"/>
+                    </h:column>
+                </h:panelGrid>
+                <br/>
+                <br/>
+                <h:commandLink action="#{carController.prepareList}" value="View All List"/>
+                <br/>
+            </h:form>
+    </ui:define>
+
+</ui:composition>
